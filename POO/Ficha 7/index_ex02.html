@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ficha 7</title>
+    <script src="index_ex02.js"></script>
+</head>
+<body>
+    <form id="frmFormulario">
+        <label for="nome"> Nome:</label>
+        <input id="nome" type="text" name="fname" maxlength="50" size="50" placeholder="nome completo" required autofocus>
+        <br>
+        <br>
+        <label for="codigoPostal"> Código Postal:</label>
+        <input id="codigoPostal" type="text" pattern="\d{4}-\d{3}" title="código postal" placeholder="ex.: 4480-123" required/>
+        <br>
+        <br>
+        <label for="numTel"> Telemóvel:</label>
+        <input id="numTel" type="text" pattern="\d{9}" title="número telemóvel (9 digitos)" placeholder="número de telemóvel" autocomplete="off" required/>
+        <br>
+        <br>
+        <label for="data"> Data de nascimento:</label>
+        <input id="data" type="date" name="bday" min="1900-01-01" max="">
+        <br>
+        <br>
+        <label for="localidade"> Localidade: </label>
+        <input list="local">
+
+        <datalist id="local">
+            <option value="Vila do Conde">
+            <option value="Póvoa de Varzim">
+            <option value="Porto">
+            <option value="Lisboa">
+            <option value="Braga">
+            <option value="Outro">
+        </datalist>
+        <br>
+        <br>
+        <label for="genero">Género:</label>
+        <!--<input list="genero">
+
+        <datalist id="genero">
+            <option value="M">
+            <option value="F">
+        </datalist>-->
+
+        <input id="genero" type="radio" name="genero" value="f"> F
+        <input id="genero" type="radio" name="genero" value="m"> M
+        <br>
+        <br>
+        <label for="email">E-mail:</label>
+        <input id="email" type="email" name="email" accesskey="w" placeholder="ex.: email@email.com" required>
+        <br>
+        <br>
+        <label for="user">Username:</label>
+        <input id="user" type="text" name="usrname" placeholder="username" required> 
+        <br>
+        <br>
+        <label for="password">Password:</label>
+        <input id="palavraPasse" type="password" name="palavraPasse" placeholder="password" autocomplete="off" required>
+        <br>
+        <br>
+        <label for="confPasse">Confirmar Password:</label>
+        <input id="confPasse" type="password" name="ConfPalavraPasse" placeholder="confirmar password" autocomplete="off" required>
+        <br>
+        <br>
+        <label for="sizeCamisola">Tamanho da T-shirt:</label>
+        <input list="camisola">
+
+        <datalist id="camisola">
+            <option value="XS">
+            <option value="S">
+            <option value="M">
+            <option value="L">
+            <option value="XL">
+        </datalist>
+        
+        <br>
+        <br>
+        <label for="url">URL da Página Pessoal:</label>
+        <input id="myURL" name="myURL" type="url" placeholder="ex.: http://www.exemplo.com" size="25">
+        <br>
+        <br>
+        <label for="numTenis">Número da Sapatilha:</label>
+        <input id="numSapatilha" type="number" name="quantity" min="30" max="50" placeholder="30-50">
+        <br>
+        <br>
+        <label for="desportos"> Principais desportos praticados:</label>
+       <!-- <input list="desportos">
+
+        <datalist id="desportos">
+            <option value="Running">
+            <option value="Cycling">
+            <option value="Natação">
+            <option value="Futebol">
+            <option value="Vela">
+            <option value="Ténis">
+            <option value="Outros">
+        </datalist>-->
+        <input id="desportos" type="checkbox" name="desportos" value="running">Running
+        <input id="desportos" type="checkbox" name="desportos" value="cycling">Cycling
+        <input id="desportos" type="checkbox" name="desportos" value="natacao">Natação
+        <input id="desportos" type="checkbox" name="desportos" value="futebol">Futebol
+        <input id="desportos" type="checkbox" name="desportos" value="vela">Vela
+        <input id="desportos" type="checkbox" name="desportos" value="tenis">Ténis
+        <input id="desportos" type="checkbox" name="desportos" value="outros">Outros
+        <br>
+        <br>
+        <label for="obs"> Obcervações:</label> 
+        <br>
+        <textarea id="obcervacoes" cols="30" rows="10"> </textarea>
+        <br>
+        <br>
+        <input id="submeter" type="submit" value="Submeter">
+        <input id="limpar" type="reset" value="Repor">
+
+    </form>
+</body>
+</html>
