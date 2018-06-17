@@ -3,9 +3,9 @@ let userId = 0
 
 class User {
 
- constructor(users, email, password) {
+ constructor(name, email, password) {
     this._id = User.getLastId() + 1
-    this.users = users
+    this.name = name
     this.email = email
     this.password = password
  }
@@ -15,13 +15,13 @@ class User {
  return this._id
  }
 
- // Propriedade USERS
- get users() {
- return this._users
+ // Propriedade NAME
+ get name() {
+ return this._name
  }
 
- set users(newUsers) {
- this._users = newUsers
+ set name(newName) {
+ this._name = newName
  }
 
  // Propriedade EMAIL
@@ -197,7 +197,7 @@ trips.push(newTrip04)
         if (users[i].email == inputLoginEmail.value && users[i].password == inputLoginPassword.value) {
             userExists = true
             userId = users[i].id
-            userName = users[i].users
+            userName = users[i].name
         }        
     }   
 
@@ -255,8 +255,8 @@ trips.push(newTrip04)
 
  // 3. Criar o utilizador
  if (strError=="") {
- let inputUser = document.getElementById("inputUser")
- let newUser = new User(inputUser.value, inputEmail.value, inputPassword1.value)
+ let inputName = document.getElementById("inputName")
+ let newUser = new User(inputName.value, inputEmail.value, inputPassword1.value)
  // 4. Adicionar ao array
  users.push(newUser)
  userId = newUser.id
@@ -279,7 +279,7 @@ trips.push(newTrip04)
  } else {
  alert(strError) 
  frmRegister.reset()
- inputUser.focus()
+ inputName.focus()
  }
  event.preventDefault()
  })
@@ -375,42 +375,7 @@ function renderCatalog(userId = 0, countryId = 0) {
                     <img class="card-img-top" src="${trips[i].link}" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">${trips[i].name}</h5>
-                        <p class="card-text">${trips[i].description}</p>
-
-                        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#sobreViagemModal">Sobre Viagem</button>
-
-                        <!-- Modal -->
-                        <div id="sobreViagemModal" class="modal fade" role="dialog">
-                        <div class="modal-dialog">
-
-                            <!-- Modal content-->
-                            <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <h4 class="modal-title">Sobre Viagem</h4>
-                            </div>
-                            <div class="modal-body">
-                                <h3>Nome: </h3>  <p> ${trips[i].name} </p>
-
-                                <h3>País: </h3>  <p> ${trips[i].country} </p>
-
-                                <h3>Data: </h3>   <p> ${trips[i].date} </p>
-
-                                <h3>Descrição: </h3>  <p> ${trips[i].description} </p>
-
-                                <h3>Pontuação: </h3>  <p> ${trips[i].score} </p>
-
-                                <h3>Autor: </h3>  <p> ${users[i].users} </p>
-
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-                            </div>
-                            </div>
-
-                        </div>
-                        </div>
-                        `
+                        <p class="card-text">${trips[i].description}</p>`
             if (userId!=0) {
                 
                 strHtmlCard += `<a id="${trips[i].id}" href="#" class="btn btn-danger remove">REMOVE</a>`    
