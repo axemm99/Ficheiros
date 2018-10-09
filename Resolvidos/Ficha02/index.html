@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ficha02</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <div id="intro">
+        <h1>PRODUTO</h1>
+        <button v-on:click="up">+</button>
+        <span>{{ numero }}</span>
+        <button v-on:click="down" v-bind:disabled="valueNegative">-</button>
+        <h2 v-if="numero==0">Número Inválido</h2>
+    </div>
+
+
+
+    <script type="text/javascript">
+    
+        const vm = new Vue({
+            created: function() { 
+                console.log("a instância vue foi criada") 
+                if(localStorage.numero){
+                    this.numero = parseInt(localStorage.numero)
+                }
+            },
+            mounted: function(){
+                console.log("a instância vue foi montada") 
+            }, 
+            updated: function(){
+                console.log("a instância vue foi alterada") 
+                if(localStorage.numero){
+                    localStorage.setItem("numero", this.numero)
+                }
+            },            
+            el: '#intro',
+            data: {
+                numero: 0,
+                valueNegative: false
+            },
+            methods: {
+                up: function(){
+                    this.numero = this.numero + 1
+                    this.message = ""
+                    this.valueNegative = false
+                    localStorage.setItem("numero", this.numero)
+                },
+                down: function(){
+                    if(this.numero != 0){
+                        this.numero = this.numero - 1
+                        this.valueNegative = false
+                        localStorage.setItem("numero", this.numero)
+                    }
+                    else{
+                        this.valueNegative = true
+                    }
+                }
+            }
+        })
+        
+        
+    
+    </script>
+</body>
+</html>

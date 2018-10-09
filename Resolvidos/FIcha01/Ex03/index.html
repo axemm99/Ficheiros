@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+            <title>Ex03</title>
+            <script src="js/vue.js"></script>
+        </head>
+        <body>
+
+            <div id="intro">
+                <h2>Peso: {{weight}} kgs</h2> 
+            </div>
+            
+            <script type="text/javascript">
+
+                const vm = new Vue({
+                    beforeCreate: function() { console.log("sperm") },
+                    created: function() { console.log("baby") },
+                    beforeMount: function() { console.log("teenager") },
+                    mounted: function() { console.log("young adult") },
+                    beforeUpdate: function() { console.log("adult") },
+                    updated: function() { console.log("middle age man") },
+                    beforeDestroy: function() { console.log("old man") },
+                    destroyed: function() { console.log("bones and dust") },
+                    el: '#intro',
+                    data: {
+                        weight: "55"
+                    }
+                })
+
+            </script>
+        </body>
+</html>
